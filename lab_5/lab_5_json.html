@@ -11,19 +11,20 @@
     <div class="wrapper">
       <div class="header">Test JSON page</div>
       <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
-      <button class="button" onclick="console.log('You haven\'t written a function yet!');">Click me to replace list entries</button>
+      <button class="button" onclick="myFuntions()">Click me to replace list
+        entries</button>
       <div class="content">
         <ul class="instructions">
           <li>Delete and re-clone the class repository</li>
           <li>Open <span class="code">lab_5_json.html</span> in your browser</li>
           <li>Open your developer tools and look at the logged data</li>
           <li>In your console, write code to:
-            <ol>
-              <li>At the click of the button above</li>
-              <li>Loop through the 'countries' variable</li>
-              <li>Replace this list's entries with country names</li>
-              <li>Now, limit the number of countries listed to fifty</li>
-              <li>Randomize which fifty countries are displayed on load</li>
+            <ol id="list">
+              <li class="items"></li>
+              <li class="items"></li>
+              <li class="items"></li>
+              <li class="items"></li>
+              <li class="items"></li>
             </ol>
           </li>
         </ul>
@@ -279,7 +280,29 @@
       { "name": "Zimbabwe", "code": "ZW" }
     ]
     console.log("List of countries in the world", countries);
+
+    function myFuntions(){
+      var ol = document.getElementById("list");
+      while(ol.childNodes.length < 50){
+        for (var i = 0; i <=44; i++){
+          var ol = document.getElementById("list");
+          var li = document.createElement("li");
+          li.setAttribute("class", "items");
+          ol.appendChild(li);
+        }
+      }
+
+      for (var i =0; i<=49; i++){
+        let random = Math.floor(Math.random() * countries.length);
+        let myCountry = countries[random].name;
+        document.getElementsByClassName("items")[i].innerHTML = myCountry;
+        console.log(myCountry);
+
+      }
+
+    }
   </script>
 </body>
 
 </html>
+
