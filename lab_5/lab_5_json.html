@@ -281,16 +281,20 @@
     ]
     console.log("List of countries in the world", countries);
 
-    function getRandomIntInclusive(min, max){
+    var content = document.getElementsByClassName("content");
+    content.innerHTML = ' ';
+
+    function getRandomIntInclusive(min, max) {
       min = Math.ceil(min);
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    function myFuntions(){
+
+    function myFuntions() {
       var ol = document.getElementById("list");
-      while(ol.childNodes.length < 50){
-        for (var i = 0; i <=44; i++){
+      while (ol.childNodes.length < 50) {
+        for (var i = 0; i <= 44; i++) {
           var ol = document.getElementById("list");
           var li = document.createElement("li");
           li.setAttribute("class", "items");
@@ -298,7 +302,7 @@
         }
       }
 
-      for (var i =0; i<=49; i++){
+      for (var i = 0; i <= 49; i++) {
         let random = Math.floor(Math.random() * countries.length);
         let myCountry = countries[random].name;
         document.getElementsByClassName("items")[i].innerHTML = myCountry;
@@ -308,4 +312,3 @@
 </body>
 
 </html>
-
