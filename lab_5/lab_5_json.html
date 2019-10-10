@@ -11,22 +11,22 @@
     <div class="wrapper">
       <div class="header">Test JSON page</div>
       <!-- <button class="button" onclick="loadData()">Load Some JSON</button> -->
-      <button class="button" onclick="myFuntions()">Click me to replace list
+      <button class="button" onclick=myfunction()>Click me to replace list
         entries</button>
       <div class="content">
         <ul class="instructions">
-          <li>Delete and re-clone the class repository</li>
-          <li>Open <span class="code">lab_5_json.html</span> in your browser</li>
-          <li>Open your developer tools and look at the logged data</li>
-          <li>In your console, write code to:
-            <ol id="list">
-              <li class="items"></li>
-              <li class="items"></li>
-              <li class="items"></li>
-              <li class="items"></li>
-              <li class="items"></li>
-            </ol>
-          </li>
+          <li>At the click of the button above</li>
+          <li>Replace this list</li>
+          <li>With an ordered list</li>
+          <li>Of fifty randomly-selected countries</li>
+          <li>Every time you click the above button</li>
+          <li>The list of countries should change</li>
+          <ol>
+            <li>Use your Developer tools to experiment with possible answers</li>
+            <li>When you have an idea of the correct code</li>
+            <li>Write it into your copy of the Lab HTML</li>
+            <li>And save it for submission</li>
+          </ol>
         </ul>
       </div>
       <div class="footer"></div>
@@ -281,33 +281,28 @@
     ]
     console.log("List of countries in the world", countries);
 
-    var content = document.getElementsByClassName("content");
-    content.innerHTML = ' ';
+    function myfunction() {
+      sessionStorage.setItem("new", JSON.stringify(countries));
+      const str = sessionStorage.getItem("new");
+      const json = JSON.parse(str);
+      
+      const instructions = document.querySelector(".instructions");
+      var old_list = document.getElementsByClassName("instructions");
+      var new_list = document.createElement("ol");
 
-    function getRandomIntInclusive(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-
-    function myFuntions() {
-      var ol = document.getElementById("list");
-      while (ol.childNodes.length < 50) {
-        for (var i = 0; i <= 44; i++) {
-          var ol = document.getElementById("list");
-          var li = document.createElement("li");
-          li.setAttribute("class", "items");
-          ol.appendChild(li);
-        }
-      }
-
-      for (var i = 0; i <= 49; i++) {
-        let random = Math.floor(Math.random() * countries.length);
-        let myCountry = countries[random].name;
-        document.getElementsByClassName("items")[i].innerHTML = myCountry;
+      for (let i = 0; i < 50; i++) {
+        var new_item = document.createElement("li");
+        var random = Math.floor(Math.random() * countries.length);
+        var myCountry = json[random].name;
+        new_item.innerHTML = myCountry;
+        new_list.appendChild(new_item);
+        old_list[0].innerHTML = "";
+        old_list[0].appendChild(new_list);
       }
     }
+
+
+
   </script>
 </body>
 
