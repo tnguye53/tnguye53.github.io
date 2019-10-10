@@ -282,6 +282,7 @@
     console.log("List of countries in the world", countries);
 
     function myFuntions(){
+      const json = sessionStorage()
       var ol = document.getElementById("list");
       while(ol.childNodes.length < 50){
         for (var i = 0; i <=44; i++){
@@ -296,7 +297,6 @@
         let random = Math.floor(Math.random() * countries.length);
         let myCountry = countries[random].name;
         document.getElementsByClassName("items")[i].innerHTML = myCountry;
-
       }
     }
   </script>
