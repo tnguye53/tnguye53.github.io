@@ -285,7 +285,6 @@
       sessionStorage.setItem("new", JSON.stringify(countries));
       const str = sessionStorage.getItem("new");
       const json = JSON.parse(str);
-      
       const instructions = document.querySelector(".instructions");
       var old_list = document.getElementsByClassName("instructions");
       var new_list = document.createElement("ol");
@@ -298,7 +297,14 @@
         new_list.appendChild(new_item);
         old_list[0].innerHTML = "";
         old_list[0].appendChild(new_list);
+        console.log([...new Set(countries)]);
       }
+      function noDuplicate(testDup) {
+        const dup = [];
+        testDup.map((e, i) => !dup.includes(e) && final.push(e))
+        return dup
+      }
+      console.log(noDuplicate(countries))
     }
 
 
