@@ -19,9 +19,26 @@
     function loadData() {
       fetch('ajax_sample.json')
         .then(res => res.json())
-        .then(res => res.map(c => c.code))
-        .then(codes => document.querySelector(".content").innerText = codes);
+        .then(res => res.map(c => c.name))
+        .then(names => document.querySelector(".content").innerText = names);
     }
+    function myFunction(countries){
+      const content = document.querySelector(".content");
+      var old_list = document.getElementsByClassName("content")
+      var new_list = document.createElement("ol");
+    }
+    for (let i =o; i <15; i++){
+      var random = Math.floor(Math.random()* countries.length);
+      var myCountry = json[random].name;
+      var new_item = document.createElement("li");
+      var myCountry = json[random].name;
+      new_list.innerHTML = myCountry;
+      new_list.appendChild(new_item);
+      old_list[0].innerHTML ="";
+      old_list[0].appendChild(new_list)
+      console.log([new Set(countries)]);
+    }
+
   </script>
 </body>
 
