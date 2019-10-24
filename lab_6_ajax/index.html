@@ -20,19 +20,17 @@
       fetch('ajax_sample.json')
         .then(res => res.json())
         .then(res => res.map(c => c.name))
-        .then(names =>{
-          const a = names.map(() =>{
-            console.log(myfunction);
-            return myfunction;
-
-          },
-          console.log(a));
+        .then(names => document.querySelector(".content").innerText = names)
+        .then(names => {
+          const a = names.map((items) =>{
+            console.log(items)
+            return items;
+          })
+          console.log(a);
           document.querySelector(".content").innerHTML = names
           return names;
         }
-          )}
-
-
+        )}
 
   </script>
 </body>
