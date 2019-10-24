@@ -20,7 +20,6 @@
       fetch('ajax_sample.json')
         .then(res => res.json())
         .then(res => res.map(c => c.name))
-        .then(res => myfunction(res))
         .then(names => document.querySelector(".content").innerText = names);
         const content = document.querySelector(".content");
         var old_list = document.getElementsByClassName("content");
@@ -34,7 +33,7 @@
           new_list.appendChild(new_item);
           old_list[0].innerHTML = "";
           old_list[0].appendChild(new_list);
-          console.log([...new set(countries)]);
+          console.log([...new set(names)]);
 
         }
 
