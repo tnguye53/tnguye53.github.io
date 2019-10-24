@@ -28,11 +28,13 @@
             var new_item = document.createElement("li");
             var random = Math.floor(Math.random() * res.length);
             var myCountry = res[random].name;
-            new_item.innerHTML = myCountry;
+            var code = res[random].code;
+            var together = myCountry + code;
+            new_item.innerHTML = together;
             new_list.appendChild(new_item);
-            old_list[0].innerHTML = "";
+            old_list[0].innerHTML = " ";
             old_list[0].appendChild(new_list);
-            console.log([new Set(res)]);
+            console.log("  ", res);
           }
 
         })
