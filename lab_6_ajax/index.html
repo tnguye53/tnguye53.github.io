@@ -23,6 +23,9 @@
         .then(names => document.querySelector(".content").innerText = names)
         .then(names => {
           const a = names.map((items) =>{
+            for (let i=0; i<15; i++){
+              var random = Math.floor(Math.random() * name.length);
+            }
             console.log(items)
             return items;
           })
