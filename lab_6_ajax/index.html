@@ -19,21 +19,24 @@
     function loadData() {
       fetch('ajax_sample.json')
         .then(res => res.json())
-        .then(res => res.map(c => c.name))
-        .then(names => document.querySelector(".content").innerText = names)
-        .then(names => {
-          const a = names.map((items) =>{
-            for (let i=0; i<15; i++){
-              var random = Math.floor(Math.random() * name.length);
-            }
-            console.log(items)
-            return items;
-          })
-          console.log(a);
-          document.querySelector(".content").innerHTML = names
-          return names;
-        }
-        )}
+        .then(res => {
+          const instructions = document.querySelector(".content");
+          var old_list = document.getElementsByClassName("content");
+          var new_list = document.createElement("ol");
+
+          for (let i = 0; i < 15; i++) {
+            var new_item = document.createElement("li");
+            var random = Math.floor(Math.random() * res.length);
+            var myCountry = res[random].name;
+            new_item.innerHTML = myCountry;
+            new_list.appendChild(new_item);
+            old_list[0].innerHTML = "";
+            old_list[0].appendChild(new_list);
+            console.log([new Set(res)]);
+          }
+
+        })
+    }
 
   </script>
 </body>
