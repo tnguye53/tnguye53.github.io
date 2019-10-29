@@ -21,14 +21,14 @@
         .then(res => res.json())
         .then(res => {
           for(let i=0; i<res.length; i++){
-            document.querySelector(".content").innerHTML += "<li>" + res[i].route_id + ":" + res[i].title + "</li>";
+            document.querySelector(".content").innerHTML += "<li>" + "Bus Routes id: " + res[i].route_id + "  " + " Route: " + res[i].title + "</li>";
 
           }
           return res;
         })
         .then(res => {
           function route(id){
-            return id.route_id === "131";
+            return id.route_id === "127";
           }
           myRoutes = res.find(route)
           document.querySelector(".header").innerHTML = "UMD Bus Routes" + "  " + myRoutes.title;
