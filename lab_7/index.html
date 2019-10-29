@@ -18,36 +18,23 @@
   <script>
     function loadData() {
       fetch('https://api.umd.io/v0/bus/routes')
+        .then(res => res.json())
         .then(res => {
-          console.log(res.json);
-          return res.json();
-        })
-        .then(res => {
-          console.log(res);
+          for(let i=0; i<res.length; i++){
+            document.querySelector(".content").innerHTML += "<li>" + res[i].route_id + ":" + res[i].title + "</li>";
+
+          }
           return res;
         })
-        .then(res => routes(res));
-    }
-        const routes = (data) => {
-          let array = data;
-          findroutes(array);
-          for(let i=0; i<data.length; i++){
-            let id = array[i].route_id;
-            let route = array[i].title;
-
-            let content = document.querySelector(".content");
-            let li = document.createElement("li");
-            li.innerHTML = route + " " + id.toString();
-            content.appendChild("li");
-            console.log(data);
+        .then(res => {
+          function route(id){
+            return id.route_id === "131";
           }
-        }
-        const findroutes = (array) => {
-          let found = array[0].title;
-          let found = array[0].title;
-          document.querySelector(".header") = li.innerHTML.find() = route + id;
-          (data => document.querySelector(".content").innerText = data);
-        }
+          myRoutes = res.find(route)
+          document.querySelector(".header").innerHTML = "UMD Bus Routes" + "  " + myRoutes.title;
+          console.log(myRoutes);
+        })
+    }
     
   </script>
 </body>
