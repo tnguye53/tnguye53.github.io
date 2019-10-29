@@ -21,7 +21,7 @@
         .then(res => res.json())
         .then(res => {
           for(let i=0; i<res.length; i++){
-            document.querySelector(".content").innerHTML += "<li>" + "Bus Routes id: " + res[i].route_id + "  " + " Route: " + res[i].title + "</li>";
+            document.querySelector(".content").innerHTML += "<li>" + "Bus Num: " + res[i].route_id + "  " + "Bus Route: " + res[i].title + "</li>";
 
           }
           return res;
