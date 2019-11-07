@@ -21,11 +21,22 @@
       fetch('/api')
         .then(res => res.json())
         .then(res => {
-          console.log(res); // logging step to check what we got
+          console.log(res);
           return res;
         })
-        .then(res => res.data.map(c => c.route_id))
-        .then(codes => document.querySelector(".content").innerText = codes);
+        .then(res => myCourses(res.course))
+        //.then(codes => document.querySelector(".content").innerText = codes);
+    }
+    const myCourses = (arr) => {
+      let content = document.querySelector(".content");
+      content.innerHTML = "";
+      for(let i=0; i<arr.length; i++){
+        let index = arr[i].course_id + " " + arr[i].name;
+        let li = document.createElement("li");
+        li.innerHTML = index;
+        content.appendChild(li);
+      }
+      
     }
   </script>
 </body>
