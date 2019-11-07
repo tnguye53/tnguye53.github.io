@@ -47,7 +47,7 @@ app.get('/api', (req, res) => {
     .then((r) => r.json())
     .then((data) => {
       // console.log(data);
-      const course = data.filter(d => d.dept_id.startswith("INST"));
+      const course = data.filter(d => d.dept_id.startsWith("INST"));
       res.send({ course: course });
     })
     .catch((err) => {

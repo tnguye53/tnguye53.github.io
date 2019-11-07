@@ -31,7 +31,7 @@
       let content = document.querySelector(".content");
       content.innerHTML = "";
       for(let i=0; i<arr.length; i++){
-        let index = arr[i].course_id + " " + arr[i].name;
+        let index = arr[i].course_id + ": " + arr[i].name;
         let li = document.createElement("li");
         li.innerHTML = index;
         content.appendChild(li);
